@@ -1,4 +1,4 @@
-FROM bitnami/java:21.0.2-14-debian-12-r7
+FROM bitnami/java:1.8.402-7-debian-12-r7
 
 ## Build Env vars
 ARG OO_VERSION=4.1.15
@@ -35,8 +35,8 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
 
 # ### Containers should NOT run as root as a good practice
-# USER 1001
-# WORKDIR ${APP_ROOT}
+USER 1001
+WORKDIR ${APP_ROOT}
 
 EXPOSE ${SOFFICE_DAEMON_PORT}
 
